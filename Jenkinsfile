@@ -1,16 +1,16 @@
-def imageName = 'mlabouardy/movies-loader'
-def registry = 'https://registry.slowcoder.com'
+def imageName = 'adriannavarro/loader'
+def registry = 'https://hub.docker.com'
 
 node('jenkins_agent'){
     stage('Checkout'){
         checkout scm
     }
 
-    // stage('Unit Tests'){
-    //     def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
-    //     sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
-    //     junit "$PWD/reports/*.xml"
-    // }
+    stage('Unit Tests'){
+        def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
+        sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
+        junit "$PWD/reports/*.xml"
+    }
 
     // stage('Build'){
     //     docker.build(imageName)
