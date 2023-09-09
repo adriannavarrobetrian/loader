@@ -12,7 +12,7 @@ node('jenkins_agent'){
         junit "$PWD/reports/*.xml"
     }
 
-    // stage('Build'){
+    /// stage('Build'){
     //     docker.build(imageName)
     // }
 
