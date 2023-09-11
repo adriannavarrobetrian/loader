@@ -1,5 +1,5 @@
 def imageName = 'adriannavarro/loader'
-#def registry = 'https://hub.docker.com'
+//def registry = 'https://hub.docker.com'
 
 node('jenkins_agent'){
     stage('Checkout'){
