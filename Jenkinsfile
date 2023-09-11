@@ -1,5 +1,5 @@
 def imageName = 'adriannavarro/loader'
-def registry = 'https://hub.docker.com'
+#def registry = 'https://hub.docker.com'
 
 node('jenkins_agent'){
     stage('Checkout'){
@@ -18,7 +18,7 @@ node('jenkins_agent'){
     }
 
     stage('Push'){
-        docker.withRegistry('registry', 'github') {
+        docker.withRegistry('https://hub.docker.com', 'github') {
             docker.image(imageName).push(commitID())
 
             if (env.BRANCH_NAME == 'develop') {
