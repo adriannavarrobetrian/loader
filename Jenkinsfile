@@ -18,7 +18,7 @@ node('jenkins_agent'){
     }
 
     stage('Push'){
-        docker.withRegistry('https://registry.hub.docker.com', 'github') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             docker.image(imageName).push(commitID())
 
             if (env.BRANCH_NAME == 'develop') {
