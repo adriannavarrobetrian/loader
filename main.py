@@ -2,9 +2,9 @@ import json
 import boto3
 import os
 
-sqs = boto3.client('sqs', region_name=os.environ['eu-west-1'])
+sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'])
 
-queue_url = os.environ['https://sqs.eu-west-1.amazonaws.com/646390474080/movies_to_parse']
+queue_url = os.environ['SQS_URL']
 
 def sendMovie(movie):
     response = sqs.send_message(
